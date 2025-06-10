@@ -1,0 +1,154 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Fallback font */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f0f0; /* Light background for contrast */
+    /* Consider an 80s pattern or a subtle gradient later */
+}
+
+/* 80s Font - Apply to specific elements or globally */
+h1, h2, h3 {
+    font-family: 'Press Start 2P', cursive; /* 80s pixel font */
+    color: #FF00FF; /* Magenta - very 80s */
+    text-shadow: 2px 2px #00FFFF; /* Cyan shadow - also very 80s */
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 1.8rem; /* Adjust for mobile */
+}
+
+h2 {
+    font-size: 1.4rem; /* Adjust for mobile */
+}
+
+/* Header & Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 60vh; /* Ensure it's tall enough on mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* For carousel images */
+    padding: 20px;
+    background-color: #222; /* Fallback if images don't load */
+}
+
+.carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Behind the text */
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area, might crop */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 0.6; /* Slight dim for text readability over image */
+}
+
+.hero-text {
+    position: relative; /* Ensure text is above carousel overlay */
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 2.2rem; /* Larger for hero */
+    margin-bottom: 0.2em;
+}
+.hero-text h2 {
+    font-size: 1.1rem;
+    font-family: 'Arial', sans-serif; /* More readable for subtitle */
+    text-shadow: 1px 1px #111;
+    color: #f0f0f0;
+}
+
+
+/* Info Sections */
+.info-section {
+    padding: 20px 15px;
+    margin-bottom: 10px;
+    background-color: #fff; /* White cards for content */
+    border-left: 5px solid #FF00FF; /* 80s accent color */
+}
+
+.info-section h2 {
+    margin-bottom: 15px;
+}
+
+.info-section p, .info-section li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.info-section ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #00FFFF; /* Cyan text on dark background */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+}
+
+/* Desktop and larger screens - Example */
+@media (min-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    .hero-text h1 { font-size: 3.5rem; }
+    .hero-text h2 { font-size: 1.5rem; }
+
+    main {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 0 20px;
+        display: grid; /* Example: use grid for layout on larger screens */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .info-section {
+        padding: 30px;
+        margin-bottom: 0; /* Gap handles spacing */
+    }
+}
+
+/* For scroll-driven animations (see js/script.js) */
+.animated-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animated-element.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
