@@ -11,11 +11,9 @@
 <body>
     <header class="hero-section">
         <div class="carousel-container">
-            <!-- Replace with your actual 80s images in the img/ folder -->
             <img src="img/placeholder-80s-1.jpg" alt="80s theme image 1" class="carousel-image">
             <img src="img/placeholder-80s-2.jpg" alt="80s theme image 2" class="carousel-image">
             <img src="img/placeholder-80s-3.jpg" alt="80s theme image 3" class="carousel-image">
-            <!-- Add more images as needed -->
         </div>
         <div class="hero-text">
             <h1>You're Invited!</h1>
@@ -68,5 +66,20 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js" integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var sound = new Howl({
+            src: ['audio/luftballoons.mp3'],
+            html5: true,
+            onplayerror: function() {
+                sound.once('unlock', function() {
+                sound.play();
+                });
+            },
+            onend: () => { sound.unload(); }
+        });
+
+        sound.play();
+    </script>
 </body>
 </html>
