@@ -52,7 +52,6 @@ h2 {
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     z-index: -1;  /* Behind all page content */
-    opacity:0.5;
 }
 
 .carousel-image {
