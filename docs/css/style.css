@@ -11,6 +11,7 @@ body {
     color: #333;
     background-color: #f0f0f0; /* Light background for contrast */
     /* Consider an 80s pattern or a subtle gradient later */
+    
 }
 
 /* 80s Font - Apply to specific elements or globally */
@@ -75,14 +76,14 @@ h2 {
 }
 
 .hero-text h1 {
-    font-size: 2.2rem; /* Larger for hero */
+    font-size: 2.8rem; /* Larger for hero */
     margin-bottom: 0.2em;
 }
 .hero-text h2 {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-family: 'Arial', sans-serif; /* More readable for subtitle */
     text-shadow: 1px 1px #111;
-    color: #f0f0f0;
+    color: #44ec1a;;
 }
 
 /* Ensure main content is stacked correctly above the fixed carousel */
@@ -97,9 +98,13 @@ main {
 /* Info Sections */
 .info-section {
     padding: 20px 15px;
-    margin: 50vh 0;
+    margin-top: 30vh;
+    margin-bottom: 70vh;
+    margin-left:1em;
+    margin-right:1em;
     background-color: #fff; /* White cards for content */
     border-left: 5px solid #FF00FF; /* 80s accent color */
+    /* background-image: url(../img/memphis_bg.png); */
 }
 
 .info-section h2 {

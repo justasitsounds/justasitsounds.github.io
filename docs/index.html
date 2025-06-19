@@ -18,7 +18,7 @@
         <!-- Add more images: 1 for hero + 1 for each info-section -->
     </div>
 
-    <header class="hero-section">
+    <header class="hero-section" style="background-image: url('img/memphis_bg.png');">
         <div class="hero-text animated-element">
             <h1>Angie's Totally Tubular 40th!</h1>
             <h2>Get Ready to Rewind to the 80s!</h2>
@@ -26,7 +26,7 @@
     </header>
 
     <main>
-        <section class="info-section animated-element" id="details">
+        <section class="info-section animated-element" id="details" >
             <h2>Party Deets!</h2>
             <p><strong>Date:</strong> Saturday, November 9th, 2024</p>
             <p><strong>Time:</strong> 7:00 PM 'til late</p>
@@ -42,6 +42,85 @@
             <h2>RSVP</h2>
             <p>Let us know if you can make it by October 20th so we can get a head count for the Pac-Man pizza!</p>
             <p>Contact Angie: [Angie's Contact Info] or RSVP <a href="#">online</a>.</p>
+        </section>
+
+        <section class="animated-element" id="pacman-animation-section" style="margin-top: 2em; margin-bottom: 2em;">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 500 100"
+                 preserveAspectRatio="xMidYMid meet"
+                 style="display: block; width: 100%; max-width: 500px; margin: 0 auto;">
+              <title>Pac-Man Animation (Looping)</title>
+              <desc>An animation of Pac-Man moving from left to right, eating dots, and looping. Pac-Man is yellow with a chomping mouth. The dots are white and disappear as Pac-Man eats them, then reappear for each loop. The background is black.</desc>
+
+              <!-- Background -->
+              <rect width="100%" height="100%" fill="#000000"/>
+
+              <!-- Dots -->
+              <g id="dots-group">
+                <!-- Dot 1 (Eaten at ~0.45s) -->
+                <circle cx="70" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.09;0.11;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 2 (Eaten at ~0.91s) -->
+                <circle cx="110" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.182;0.202;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 3 (Eaten at ~1.36s) -->
+                <circle cx="150" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.272;0.292;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 4 (Eaten at ~1.82s) -->
+                <circle cx="190" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.364;0.384;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 5 (Eaten at ~2.27s) -->
+                <circle cx="230" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.454;0.474;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 6 (Eaten at ~2.73s) -->
+                <circle cx="270" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.546;0.566;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 7 (Eaten at ~3.18s) -->
+                <circle cx="310" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.636;0.656;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 8 (Eaten at ~3.64s) -->
+                <circle cx="350" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.728;0.748;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 9 (Eaten at ~4.09s) -->
+                <circle cx="390" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.818;0.838;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <!-- Dot 10 (Eaten at ~4.55s) -->
+                <circle cx="430" cy="50" r="3" fill="white">
+                  <animate attributeName="r" values="3;3;0;3" keyTimes="0;0.91;0.93;1" dur="5s" repeatCount="indefinite" />
+                </circle>
+              </g>
+
+              <!-- Pac-Man -->
+              <g id="pacman-group">
+                <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    from="30 50"
+                    to="470 50"
+                    dur="5s"
+                    repeatCount="indefinite"
+                    id="pacmanMoveAnim"/>
+
+                <path id="pacman-body" fill="yellow" stroke="black" stroke-width="0.5"
+                      d="M 0,0 L 19.92,-1.74 A 20,20 0 1 0 19.92,1.74 Z">
+                  <animate attributeName="d"
+                           values="M 0,0 L 16.38,-11.47 A 20,20 0 1 0 16.38,11.47 Z;
+                                   M 0,0 L 19.92,-1.74 A 20,20 0 1 0 19.92,1.74 Z;
+                                   M 0,0 L 16.38,-11.47 A 20,20 0 1 0 16.38,11.47 Z"
+                           dur="0.4s"
+                           repeatCount="indefinite" />
+                </path>
+              </g>
+            </svg>
         </section>
     </main>
 
