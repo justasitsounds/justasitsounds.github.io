@@ -3,83 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angie's 40th Birthday Bash!</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- 80s inspired font from Google Fonts -->
+    <title>Angie's Awesome 80s Bash!</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="carousel-container">
+        <!-- Image 1 (Hero) -->
+        <img src="img/placeholder-80s-1.jpg" alt="80s Background Hero" class="carousel-image">
+        <!-- Image 2 (For first info-section) -->
+        <img src="img/placeholder-80s-2.jpg" alt="80s Background Details" class="carousel-image">
+        <!-- Image 3 (For second info-section) -->
+        <img src="img/placeholder-80s-3.jpg" alt="80s Background Dress Code" class="carousel-image">
+        <!-- Add more images: 1 for hero + 1 for each info-section -->
+    </div>
+
     <header class="hero-section">
-        <div class="carousel-container">
-            <img src="img/placeholder-80s-1.jpg" alt="80s theme image 1" class="carousel-image">
-            <img src="img/placeholder-80s-2.jpg" alt="80s theme image 2" class="carousel-image">
-            <img src="img/placeholder-80s-3.jpg" alt="80s theme image 3" class="carousel-image">
-        </div>
-        <div class="hero-text">
-            <h1>You're Invited!</h1>
-            <h2>Angie's Totally Awesome 40th Birthday Bash!</h2>
+        <div class="hero-text animated-element">
+            <h1>Angie's Totally Tubular 40th!</h1>
+            <h2>Get Ready to Rewind to the 80s!</h2>
         </div>
     </header>
 
     <main>
-        <section id="when-where" class="info-section">
-            <h2>When & Where</h2>
-            <p><strong>Date:</strong> [Insert Date Here, e.g., Saturday, October 26th, 2024]</p>
-            <p><strong>Time:</strong> [Insert Time Here, e.g., 7:00 PM 'til late]</p>
-            <p><strong>Location:</strong> [Insert Venue Name & Address Here]</p>
-            <p>[Optional: Add a map link or embedded map here]</p>
+        <section class="info-section animated-element" id="details">
+            <h2>Party Deets!</h2>
+            <p><strong>Date:</strong> Saturday, November 9th, 2024</p>
+            <p><strong>Time:</strong> 7:00 PM 'til late</p>
+            <p><strong>Venue:</strong> The Retro Arcade, 123 Memory Lane</p>
         </section>
 
-        <section id="dress-code" class="info-section">
-            <h2>What to Wear</h2>
-            <p>Get ready to rewind! Embrace the vibrant and iconic fashion of the 1980s.</p>
-            <p>Think: Neon colors, leg warmers, big hair, acid wash jeans, shoulder pads, tracksuits, band tees, lace, and anything that screams '80s!</p>
-            <p>Prizes for the most bodacious outfits!</p>
+        <section class="info-section animated-element" id="dress-code">
+            <h2>Dress Code: 80s MAX!</h2>
+            <p>Think leg warmers, neon, big hair, acid wash, Members Only jackets, shoulder pads... you get the picture! Best costume wins a rad prize!</p>
         </section>
 
-        <section id="what-to-bring" class="info-section">
-            <h2>What to Bring</h2>
-            <p>Just your awesome selves and your best 80s dance moves!</p>
-            <p>If you'd like to bring a dish or drinks to share, that would be tubular! (Optional, please coordinate with Angie if you plan to).</p>
-            <p>No gifts please, your presence is the best present!</p>
-        </section>
-
-        <section id="accommodation" class="info-section">
-            <h2>Accommodation Options</h2>
-            <p>For our out-of-town guests, or those who want to party responsibly:</p>
-            <ul>
-                <li><strong>[Hotel Name 1]:</strong> [Address/Contact/Link] - [Brief note, e.g., "Close to venue"]</li>
-                <li><strong>[Hotel Name 2]:</strong> [Address/Contact/Link] - [Brief note]</li>
-                <li><strong>Airbnb:</strong> Check for local listings in the [Area Name] area.</li>
-            </ul>
-        </section>
-
-        <section id="rsvp" class="info-section">
+        <section class="info-section animated-element" id="rsvp">
             <h2>RSVP</h2>
-            <p>Please let us know if you can make it by [RSVP Date] so we can get a headcount.</p>
-            <p>RSVP to Angie at [Email Address or Phone Number].</p>
+            <p>Let us know if you can make it by October 20th so we can get a head count for the Pac-Man pizza!</p>
+            <p>Contact Angie: [Angie's Contact Info] or RSVP <a href="#">online</a>.</p>
         </section>
     </main>
 
     <footer>
-        <p>Can't wait to celebrate with you!</p>
+        <p>&copy; 2024 Get Ready to Party Like It's 1980-something!</p>
     </footer>
 
     <script src="js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js" integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        var sound = new Howl({
-            src: ['audio/luftballoons.mp3'],
-            html5: true,
-            onplayerror: function() {
-                sound.once('unlock', function() {
-                sound.play();
-                });
-            },
-            onend: () => { sound.unload(); }
-        });
-
-        sound.play();
-    </script>
 </body>
 </html>

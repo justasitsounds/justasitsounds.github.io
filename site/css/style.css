@@ -51,6 +51,7 @@ h2 {
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     z-index: -1;  /* Behind all page content */
+    opacity:0.5;
 }
 
 .carousel-image {
@@ -84,11 +85,19 @@ h2 {
     color: #f0f0f0;
 }
 
+/* Ensure main content is stacked correctly above the fixed carousel */
+main {
+    position: relative; /* Establishes a stacking context */
+    z-index: 1;       /* Places it on the same level as .hero-section.
+                         Since main comes after hero-section in the DOM,
+                         it will render on top, allowing .info-section
+                         to appear above the fixed carousel. */
+}
 
 /* Info Sections */
 .info-section {
     padding: 20px 15px;
-    margin-bottom: 10px;
+    margin: 50vh 0;
     background-color: #fff; /* White cards for content */
     border-left: 5px solid #FF00FF; /* 80s accent color */
 }
@@ -118,10 +127,6 @@ footer {
     font-size: 0.7rem;
 }
 
-main {
-    z-index:10;
-}
-
 /* Desktop and larger screens - Example */
 @media (min-width: 768px) {
     h1 { font-size: 2.5rem; }
@@ -140,7 +145,6 @@ main {
 
     .info-section {
         padding: 30px;
-        margin-bottom: 0; /* Gap handles spacing */
     }
 }
 

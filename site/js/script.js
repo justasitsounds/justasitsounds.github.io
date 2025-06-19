@@ -1,47 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Basic Timed Carousel Logic for Hero Section
+    // --- Carousel Logic ---
     const carouselImages = document.querySelectorAll('.carousel-container .carousel-image');
-    let currentImageIndex = 0;
-    const imageChangeInterval = 5000; // Change image every 5 seconds
+    const infoSections = document.querySelectorAll('main .info-section');
+    let currentActiveImageIndex = -1; // Use -1 to ensure the first image is set
 
-    function showNextImage() {
-        if (carouselImages.length === 0) return;
-
-        carouselImages[currentImageIndex].classList.remove('active');
-        currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
-        carouselImages[currentImageIndex].classList.add('active');
-    }
-
-    if (carouselImages.length > 1) { // Only start carousel if there's more than one image
-        carouselImages[0].classList.add('active'); // Show first image immediately
-        setInterval(showNextImage, imageChangeInterval);
-    } else if (carouselImages.length === 1) {
-        carouselImages[0].classList.add('active'); // Show the single image
-    }
-
-    // Scroll-Driven Animations for Text/Sections (using Intersection Observer)
-    // Add the class "animated-element" to HTML elements you want to animate on scroll.
-    // The corresponding CSS is in style.css
-    const animatedElements = document.querySelectorAll('.info-section'); // Animate all info sections
-
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries, observerInstance) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    // Optional: unobserve after animation to save resources if animation should only happen once
-                    // observerInstance.unobserve(entry.target);
-                } else {
-                    // Optional: remove class if you want animation to repeat when scrolling out and back in
-                    // entry.target.classList.remove('in-view');
-                }
+    function setActiveCarouselImage(index) {
+        if (index >= 0 && index < carouselImages.length) {
+            carouselImages.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
             });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        });
-
-        animatedElements.forEach(el => observer.observe(el));
+            currentActiveImageIndex = index;
+        }
     }
 
-    console.log("Angie's 40th Invite Page Loaded! Let's get this party started!");
+    // Initialize first image (for hero area)
+    if (carouselImages.length > 0) {
+        setActiveCarouselImage(0);
+    }
+
+    // --- Animation Logic for .animated-element ---
+    const animatedElements = document.querySelectorAll('.animated-element');
+
+    function checkAnimationsInView() {
+        const triggerBottom = window.innerHeight / 5 * 4.5; // Element top needs to be above this line
+
+        animatedElements.forEach(element => {
+            const boxTop = element.getBoundingClientRect().top;
+            if (boxTop < triggerBottom) {
+                element.classList.add('in-view');
+            } else {
+                // Optional: remove class if you want elements to re-animate when scrolling up
+                element.classList.remove('in-view');
+            }
+        });
+    }
+
+    // --- Scroll Event Handler ---
+    function handlePageScroll() {
+        // Background image change logic
+        let targetImageIndex = 0; // Default to hero image (index 0)
+
+        // Determine which info-section is "active" to change the background
+        // The image index will be section_index + 1 (as image 0 is for hero)
+        for (let i = infoSections.length - 1; i >= 0; i--) {
+            const section = infoSections[i];
+            const sectionRect = section.getBoundingClientRect();
+
+            // If the section's top is above the viewport's vertical center,
+            // it (or a section before it) dictates the background.
+            if (sectionRect.top < window.innerHeight / 2) {
+                targetImageIndex = Math.min(i + 1, carouselImages.length - 1);
+                break; // Found the highest relevant section
+            }
+        }
+
+        if (targetImageIndex !== currentActiveImageIndex) {
+            setActiveCarouselImage(targetImageIndex);
+        }
+
+        // Content animations
+        checkAnimationsInView();
+    }
+
+    // Initial checks on load
+    checkAnimationsInView();
+    handlePageScroll(); // Call once to set initial image based on any pre-scroll state
+
+    window.addEventListener('scroll', handlePageScroll);
 });
