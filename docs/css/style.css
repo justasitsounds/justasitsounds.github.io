@@ -15,7 +15,7 @@ body {
 }
 
 /* 80s Font - Apply to specific elements or globally */
-h1, h2, h3 {
+h1, h2, h3, a {
     font-family: 'Press Start 2P', cursive; /* 80s pixel font */
     color: #FF00FF; /* Magenta - very 80s */
     text-shadow: 2px 2px #00FFFF; /* Cyan shadow - also very 80s */
@@ -29,6 +29,11 @@ h1 {
 
 h2 {
     font-size: 1.4rem; /* Adjust for mobile */
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.2rem; /* Adjust for mobile */
 }
 
 /* Header & Hero Section */
